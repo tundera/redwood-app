@@ -1,0 +1,32 @@
+export const standard = defineScenario({
+  team: {
+    one: {
+      id: 'String',
+      updatedAt: '2021-05-03T17:34:51Z',
+      handle: 'String7770666',
+      name: 'String7082942',
+      slug: 'String6766245',
+      city: 'String',
+      abbreviation: 'String8892632',
+      logo: 'String8676431',
+      logoSlug: 'String6692621',
+      conference: 'String',
+      division: 'String',
+      established: 'String',
+    },
+    two: {
+      id: 'String',
+      updatedAt: '2021-05-03T17:34:51Z',
+      handle: 'String7661455',
+      name: 'String4253029',
+      slug: 'String462456',
+      city: 'String',
+      abbreviation: 'String7629999',
+      logo: 'String6088725',
+      logoSlug: 'String6592911',
+      conference: 'String',
+      division: 'String',
+      established: 'String',
+    },
+  },
+})

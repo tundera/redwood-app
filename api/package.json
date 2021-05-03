@@ -1,0 +1,12 @@
+{
+  "name": "@monorepo/api",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@redwoodjs/api": "^0.31.0",
+    "@redwoodjs/api-server": "^0.31.0"
+  },
+  "devDependencies": {
+    "nba": "^4.15.0"
+  }
+}
