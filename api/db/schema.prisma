@@ -62,7 +62,7 @@ model Team {
   conference    String
   division      String
   established   String
-  coaches        Coach[]
+  coaches       Coach[]
   colorScheme   ColorScheme?
   players       Player[]
 }
