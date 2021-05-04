@@ -1,21 +1,11 @@
 {
-  "name": "@monorepo/root",
+  "name": "root",
   "private": true,
   "workspaces": {
     "packages": [
       "api",
-      "web",
-      "packages/*"
+      "web"
     ]
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "scripts": {
-    "postinstall": "preconstruct dev && manypkg check",
-    "build": "preconstruct build && rw build"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
@@ -30,8 +20,6 @@
     "react-dom": "17.0.1"
   },
   "dependencies": {
-    "@manypkg/cli": "^0.17.0",
-    "@preconstruct/cli": "^2.0.7",
     "@redwoodjs/core": "^0.31.0",
     "esbuild-register": "^2.5.0",
     "postinstall-postinstall": "^2.1.0"
