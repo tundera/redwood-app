@@ -1,12 +1,10 @@
-import CoachesLayout from 'src/layouts/CoachesLayout'
-import NewCoach from 'src/components/NewCoach'
+import CoachesLayout from "src/layouts/CoachesLayout";
+import NewCoach from "src/components/NewCoach";
 
-const NewCoachPage = () => {
-  return (
-    <CoachesLayout>
-      <NewCoach />
-    </CoachesLayout>
-  )
+function NewCoachPage() {
+	return <CoachesLayout>
+		<NewCoach />
+	</CoachesLayout>;
 }
 
-export default NewCoachPage
+export default NewCoachPage;

@@ -37,4 +37,4 @@ export const schema = gql`
     updateCoach(id: String!, input: UpdateCoachInput!): Coach!
     deleteCoach(id: String!): Coach!
   }
-`
+`;

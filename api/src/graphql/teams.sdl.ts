@@ -63,4 +63,4 @@ export const schema = gql`
     updateTeam(id: String!, input: UpdateTeamInput!): Team!
     deleteTeam(id: String!): Team!
   }
-`
+`;

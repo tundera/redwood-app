@@ -1,45 +1,49 @@
-import { Prisma } from '@prisma/client'
-import { ResolverArgs } from '@redwoodjs/api/dist/types'
-import { db } from 'src/lib/db'
+import {Prisma} from "@prisma/client";
+import {ResolverArgs} from "@redwoodjs/api/dist/types";
+import {db} from "src/lib/db";
 
-export const players = () => {
-  return db.player.findMany()
+export function players() {
+	return db.player.findMany();
 }
 
-export const player = ({ id }: Prisma.PlayerWhereUniqueInput) => {
-  return db.player.findUnique({
-    where: { id },
-  })
+export function player({id}: Prisma.PlayerWhereUniqueInput) {
+	return db.player.findUnique({
+		where: {id},
+	});
 }
 
 interface CreatePlayerArgs {
-  input: Prisma.PlayerCreateInput
+	input: Prisma.PlayerCreateInput;
 }
 
-export const createPlayer = ({ input }: CreatePlayerArgs) => {
-  return db.player.create({
-    data: input,
-  })
+export function createPlayer({input}: CreatePlayerArgs) {
+	return db.player.create({
+		data: input,
+	});
 }
 
 interface UpdatePlayerArgs extends Prisma.PlayerWhereUniqueInput {
-  input: Prisma.PlayerUpdateInput
+	input: Prisma.PlayerUpdateInput;
 }
 
-export const updatePlayer = ({ id, input }: UpdatePlayerArgs) => {
-  return db.player.update({
-    data: input,
-    where: { id },
-  })
+export function updatePlayer({id, input}: UpdatePlayerArgs) {
+	return db.player.update({
+		data: input,
+		where: {id},
+	});
 }
 
-export const deletePlayer = ({ id }: Prisma.PlayerWhereUniqueInput) => {
-  return db.player.delete({
-    where: { id },
-  })
+export function deletePlayer({id}: Prisma.PlayerWhereUniqueInput) {
+	return db.player.delete({
+		where: {id},
+	});
 }
 
 export const Player = {
-  Team: (_obj, { root }: ResolverArgs<Prisma.PlayerWhereUniqueInput>) =>
-    db.player.findUnique({ where: { id: root.id } }).Team(),
-}
+	Team: (
+		_obj,
+		{
+			root,
+		}: ResolverArgs<Prisma.PlayerWhereUniqueInput>,
+	) => db.player.findUnique({where: {id: root.id}}).Team(),
+};

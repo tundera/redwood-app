@@ -1,12 +1,10 @@
-import TeamsLayout from 'src/layouts/TeamsLayout'
-import EditTeamCell from 'src/components/EditTeamCell'
+import TeamsLayout from "src/layouts/TeamsLayout";
+import EditTeamCell from "src/components/EditTeamCell";
 
-const EditTeamPage = ({ id }) => {
-  return (
-    <TeamsLayout>
-      <EditTeamCell id={id} />
-    </TeamsLayout>
-  )
+function EditTeamPage({id}) {
+	return <TeamsLayout>
+		<EditTeamCell id={id} />
+	</TeamsLayout>;
 }
 
-export default EditTeamPage
+export default EditTeamPage;

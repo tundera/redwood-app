@@ -1,4 +1,4 @@
-import Coach from 'src/components/Coach'
+import Coach from "src/components/Coach";
 
 export const QUERY = gql`
   query FIND_COACH_BY_ID($id: String!) {
@@ -13,12 +13,20 @@ export const QUERY = gql`
       teamId
     }
   }
-`
+`;
 
-export const Loading = () => <div>Loading...</div>
+export function Loading() {
+	return <div>
+		Loading...
+	</div>;
+}
 
-export const Empty = () => <div>Coach not found</div>
+export function Empty() {
+	return <div>
+		Coach not found
+	</div>;
+}
 
-export const Success = ({ coach }) => {
-  return <Coach coach={coach} />
+export function Success({coach}) {
+	return <Coach coach={coach} />;
 }

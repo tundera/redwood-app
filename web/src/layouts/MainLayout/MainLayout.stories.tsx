@@ -1,7 +1,7 @@
-import MainLayout from './MainLayout'
+import MainLayout from "./MainLayout";
 
-export const generated = () => {
-  return <MainLayout />
+export function generated() {
+	return <MainLayout />;
 }
 
-export default { title: 'Layouts/MainLayout' }
+export default {title: "Layouts/MainLayout"};

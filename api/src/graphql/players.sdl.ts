@@ -46,4 +46,4 @@ export const schema = gql`
     updatePlayer(id: String!, input: UpdatePlayerInput!): Player!
     deletePlayer(id: String!): Player!
   }
-`
+`;

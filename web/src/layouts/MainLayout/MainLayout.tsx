@@ -1,23 +1,48 @@
-import { Link, routes } from '@redwoodjs/router'
+import {
+	Flex,
+	Heading,
+	Link,
+	List,
+	ListItem,
+	useColorModeValue,
+} from "@chakra-ui/react";
+import {Link as RedwoodLink, routes} from "@redwoodjs/router";
 
-const MainLayout: React.FunctionComponent = ({ children }) => {
-  return (
-    <>
-      <header>
-        <h1>
-          <Link to={routes.home()}>Redwood Template</Link>
-        </h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to={routes.about()}>About</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main>{children}</main>
-    </>
-  )
-}
+import Navbar from "src/components/Navbar/Navbar";
+import Footer from "src/components/Footer/Footer";
 
-export default MainLayout
+const MainLayout: React.FunctionComponent = ({children}) => {
+	const bg = useColorModeValue("white", "brand.500");
+
+	return <>
+		<Navbar />
+		<Flex direction="column"
+		align="center"
+		flexDirection="column"
+		bg={bg}
+		minH="100vh">
+			<header>
+				<Heading as="h1">
+					<Link as={RedwoodLink} to={routes.home()}>
+						Home
+					</Link>
+				</Heading>
+				<nav>
+					<List>
+						<ListItem>
+							<Link as={RedwoodLink} to={routes.about()}>
+								About
+							</Link>
+						</ListItem>
+					</List>
+				</nav>
+			</header>
+			<main>
+				{children}
+			</main>
+		</Flex>
+		<Footer />
+	</>;
+};
+
+export default MainLayout;

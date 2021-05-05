@@ -1,12 +1,10 @@
-import CoachesLayout from 'src/layouts/CoachesLayout'
-import CoachesCell from 'src/components/CoachesCell'
+import CoachesLayout from "src/layouts/CoachesLayout";
+import CoachesCell from "src/components/CoachesCell";
 
-const CoachesPage = () => {
-  return (
-    <CoachesLayout>
-      <CoachesCell />
-    </CoachesLayout>
-  )
+function CoachesPage() {
+	return <CoachesLayout>
+		<CoachesCell />
+	</CoachesLayout>;
 }
 
-export default CoachesPage
+export default CoachesPage;

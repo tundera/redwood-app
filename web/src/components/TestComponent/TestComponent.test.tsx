@@ -1,11 +1,17 @@
-import { render } from '@redwoodjs/testing'
+import {render} from "@redwoodjs/testing";
 
-import TestComponent from './TestComponent'
+import TestComponent from "./TestComponent";
 
-describe('TestComponent', () => {
-  it('renders successfully', () => {
-    expect(() => {
-      render(<TestComponent />)
-    }).not.toThrow()
-  })
-})
+describe(
+	"TestComponent",
+	() => {
+		it(
+			"renders successfully",
+			() => {
+				expect(() => {
+					render(<TestComponent />);
+				}).not.toThrow();
+			},
+		);
+	},
+);

@@ -1,12 +1,10 @@
-import ColorSchemesLayout from 'src/layouts/ColorSchemesLayout'
-import EditColorSchemeCell from 'src/components/EditColorSchemeCell'
+import ColorSchemesLayout from "src/layouts/ColorSchemesLayout";
+import EditColorSchemeCell from "src/components/EditColorSchemeCell";
 
-const EditColorSchemePage = ({ id }) => {
-  return (
-    <ColorSchemesLayout>
-      <EditColorSchemeCell id={id} />
-    </ColorSchemesLayout>
-  )
+function EditColorSchemePage({id}) {
+	return <ColorSchemesLayout>
+		<EditColorSchemeCell id={id} />
+	</ColorSchemesLayout>;
 }
 
-export default EditColorSchemePage
+export default EditColorSchemePage;

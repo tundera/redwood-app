@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "noEmit": true,
     "allowJs": true,
@@ -6,13 +7,13 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "src/*": ["./src/*"]
+      "src/*": ["src/*"]
     },
     "typeRoots": ["../node_modules/@types", "./node_modules/@types"],
     "types": ["jest"],
     "jsx": "preserve",
   },
-  "include": ["src", "../.redwood/**/*", "../types"]
+  "include": ["src"]
 }

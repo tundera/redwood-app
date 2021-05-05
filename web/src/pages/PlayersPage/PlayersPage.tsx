@@ -1,12 +1,10 @@
-import PlayersLayout from 'src/layouts/PlayersLayout'
-import PlayersCell from 'src/components/PlayersCell'
+import PlayersLayout from "src/layouts/PlayersLayout";
+import PlayersCell from "src/components/PlayersCell";
 
-const PlayersPage = () => {
-  return (
-    <PlayersLayout>
-      <PlayersCell />
-    </PlayersLayout>
-  )
+function PlayersPage() {
+	return <PlayersLayout>
+		<PlayersCell />
+	</PlayersLayout>;
 }
 
-export default PlayersPage
+export default PlayersPage;

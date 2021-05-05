@@ -1,7 +1,7 @@
-import TestComponent from './TestComponent'
+import TestComponent from "./TestComponent";
 
-export const generated = () => {
-  return <TestComponent />
+export function generated() {
+	return <TestComponent />;
 }
 
-export default { title: 'Components/TestComponent' }
+export default {title: "Components/TestComponent"};

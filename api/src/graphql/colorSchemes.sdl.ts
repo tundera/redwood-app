@@ -31,4 +31,4 @@ export const schema = gql`
     updateColorScheme(id: String!, input: UpdateColorSchemeInput!): ColorScheme!
     deleteColorScheme(id: String!): ColorScheme!
   }
-`
+`;
