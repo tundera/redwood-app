@@ -18,4 +18,7 @@ export const handler = createGraphQLHandler({
     db.$disconnect()
   },
   introspection: true,
+  cors: {
+    origin: '*',
+  },
 })
