@@ -2707,6 +2707,14 @@
   resolved "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
+"@radix-ui/popper@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/@radix-ui/popper/-/popper-0.0.10.tgz#9f707d9cec8762423f81acaf8e650e40a554cb73"
+  integrity sha512-YFKuPqQPKscreQid7NuB4it3PMzSwGg03vgrud6sVliHkI43QNAOHyrHyMNo015jg6QK5GVDn+7J2W5uygqSGA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    csstype "^3.0.4"
+
 "@reach/alert@0.13.2":
   version "0.13.2"
   resolved "https://registry.npmjs.org/@reach/alert/-/alert-0.13.2.tgz#71c4a848d51341f1d6d9eaae060975391c224870"
@@ -7246,7 +7254,7 @@ csstype@^2.5.7:
   resolved "https://registry.npmjs.org/csstype/-/csstype-2.6.17.tgz#4cf30eb87e1d1a005d8b6510f95292413f6a1c0e"
   integrity sha512-u1wmTI1jJGzCJzWndZo8mk4wnPTZd1eOIYTYvuEyOQGfmDl3TrabCCfKnOC86FZwW/9djqTl933UF/cS425i9A==
 
-csstype@^3.0.2, csstype@^3.0.6:
+csstype@^3.0.2, csstype@^3.0.4, csstype@^3.0.6:
   version "3.0.8"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
@@ -10133,6 +10141,13 @@ inquirer@^7.3.3:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
     through "^2.3.6"
+
+inspx@^0.0.1-alpha.6:
+  version "0.0.1-alpha.6"
+  resolved "https://registry.npmjs.org/inspx/-/inspx-0.0.1-alpha.6.tgz#d5d3c691b74ec86a57752679b48476be527c4f1a"
+  integrity sha512-2ZWTOUyPq11AUaHMiePWUkp47qLuSuQryQ5JGKQ61PCOi1N3PHYvFvR0/0l1elEjXEqLgwubjpYZ8JnPJQRjDw==
+  dependencies:
+    "@radix-ui/popper" "^0.0.10"
 
 internal-ip@^4.3.0:
   version "4.3.0"
