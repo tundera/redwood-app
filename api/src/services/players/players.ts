@@ -1,49 +1,52 @@
-import {Prisma} from "@prisma/client";
-import {ResolverArgs} from "@redwoodjs/api/dist/types";
-import {db} from "src/lib/db";
+import { Prisma } from '@prisma/client'
+import { ResolverArgs } from '@redwoodjs/api/dist/types'
+import { db } from 'src/lib/db'
+import { requireAuth } from 'src/lib/auth'
+import { BeforeResolverSpecType } from '@redwoodjs/api'
 
-export function players() {
-	return db.player.findMany();
+// Used when the environment variable REDWOOD_SECURE_SERVICES=1
+export const beforeResolver = (rules: BeforeResolverSpecType) => {
+  rules.add(requireAuth)
 }
 
-export function player({id}: Prisma.PlayerWhereUniqueInput) {
-	return db.player.findUnique({
-		where: {id},
-	});
+export const players = () => {
+  return db.player.findMany()
+}
+
+export const player = ({ id }: Prisma.PlayerWhereUniqueInput) => {
+  return db.player.findUnique({
+    where: { id },
+  })
 }
 
 interface CreatePlayerArgs {
-	input: Prisma.PlayerCreateInput;
+  input: Prisma.PlayerCreateInput
 }
 
-export function createPlayer({input}: CreatePlayerArgs) {
-	return db.player.create({
-		data: input,
-	});
+export const createPlayer = ({ input }: CreatePlayerArgs) => {
+  return db.player.create({
+    data: input,
+  })
 }
 
 interface UpdatePlayerArgs extends Prisma.PlayerWhereUniqueInput {
-	input: Prisma.PlayerUpdateInput;
+  input: Prisma.PlayerUpdateInput
 }
 
-export function updatePlayer({id, input}: UpdatePlayerArgs) {
-	return db.player.update({
-		data: input,
-		where: {id},
-	});
+export const updatePlayer = ({ id, input }: UpdatePlayerArgs) => {
+  return db.player.update({
+    data: input,
+    where: { id },
+  })
 }
 
-export function deletePlayer({id}: Prisma.PlayerWhereUniqueInput) {
-	return db.player.delete({
-		where: {id},
-	});
+export const deletePlayer = ({ id }: Prisma.PlayerWhereUniqueInput) => {
+  return db.player.delete({
+    where: { id },
+  })
 }
 
 export const Player = {
-	Team: (
-		_obj,
-		{
-			root,
-		}: ResolverArgs<Prisma.PlayerWhereUniqueInput>,
-	) => db.player.findUnique({where: {id: root.id}}).Team(),
-};
+  team: (_obj, { root }: ResolverArgs<Prisma.PlayerWhereUniqueInput>) =>
+    db.player.findUnique({ where: { id: root.id } }).team(),
+}

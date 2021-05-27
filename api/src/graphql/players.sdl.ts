@@ -11,7 +11,7 @@ export const schema = gql`
     number: String
     position: String
     teamId: String
-    Team: Team
+    team: Team
   }
 
   type Query {
@@ -46,4 +46,4 @@ export const schema = gql`
     updatePlayer(id: String!, input: UpdatePlayerInput!): Player!
     deletePlayer(id: String!): Player!
   }
-`;
+`

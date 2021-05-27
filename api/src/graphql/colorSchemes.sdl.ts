@@ -6,7 +6,7 @@ export const schema = gql`
     primary: String!
     secondary: String!
     teamId: String
-    Team: Team
+    team: Team
   }
 
   type Query {
@@ -31,4 +31,4 @@ export const schema = gql`
     updateColorScheme(id: String!, input: UpdateColorSchemeInput!): ColorScheme!
     deleteColorScheme(id: String!): ColorScheme!
   }
-`;
+`

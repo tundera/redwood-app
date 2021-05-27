@@ -16,9 +16,9 @@ export const schema = gql`
     conference: String!
     division: String!
     established: String!
-    Coach: [Coach]!
-    ColorScheme: ColorScheme
-    Player: [Player]!
+    coaches: [Coach]!
+    colorScheme: ColorScheme
+    players: [Player]!
   }
 
   type Query {
@@ -63,4 +63,4 @@ export const schema = gql`
     updateTeam(id: String!, input: UpdateTeamInput!): Team!
     deleteTeam(id: String!): Team!
   }
-`;
+`

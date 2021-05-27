@@ -1,6 +1,6 @@
-import {Link, routes} from "@redwoodjs/router";
+import { Link, routes } from '@redwoodjs/router'
 
-import ColorSchemes from "src/components/ColorSchemes";
+import ColorSchemes from 'src/components/ColorSchemes'
 
 export const QUERY = gql`
   query COLOR_SCHEMES {
@@ -13,23 +13,21 @@ export const QUERY = gql`
       teamId
     }
   }
-`;
+`
 
-export function Loading() {
-	return <div>
-		Loading...
-	</div>;
+export const Loading = () => <div>Loading...</div>
+
+export const Empty = () => {
+  return (
+    <div className="rw-text-center">
+      {'No colorSchemes yet. '}
+      <Link to={routes.newColorScheme()} className="rw-link">
+        {'Create one?'}
+      </Link>
+    </div>
+  )
 }
 
-export function Empty() {
-	return <div className="rw-text-center">
-		{"No colorSchemes yet. "}
-		<Link to={routes.newColorScheme()} className="rw-link">
-			{"Create one?"}
-		</Link>
-	</div>;
-}
-
-export function Success({colorSchemes}) {
-	return <ColorSchemes colorSchemes={colorSchemes} />;
+export const Success = ({ colorSchemes }) => {
+  return <ColorSchemes colorSchemes={colorSchemes} />
 }

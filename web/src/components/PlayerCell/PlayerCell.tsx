@@ -1,4 +1,4 @@
-import Player from "src/components/Player";
+import Player from 'src/components/Player'
 
 export const QUERY = gql`
   query FIND_PLAYER_BY_ID($id: String!) {
@@ -16,20 +16,12 @@ export const QUERY = gql`
       teamId
     }
   }
-`;
+`
 
-export function Loading() {
-	return <div>
-		Loading...
-	</div>;
-}
+export const Loading = () => <div>Loading...</div>
 
-export function Empty() {
-	return <div>
-		Player not found
-	</div>;
-}
+export const Empty = () => <div>Player not found</div>
 
-export function Success({player}) {
-	return <Player player={player} />;
+export const Success = ({ player }) => {
+  return <Player player={player} />
 }

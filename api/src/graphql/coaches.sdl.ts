@@ -8,7 +8,7 @@ export const schema = gql`
     type: String
     isAssistant: String
     teamId: String
-    Team: Team
+    team: Team
   }
 
   type Query {
@@ -37,4 +37,4 @@ export const schema = gql`
     updateCoach(id: String!, input: UpdateCoachInput!): Coach!
     deleteCoach(id: String!): Coach!
   }
-`;
+`

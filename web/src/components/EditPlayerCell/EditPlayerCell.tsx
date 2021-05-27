@@ -1,7 +1,7 @@
-import {useMutation} from "@redwoodjs/web";
-import {toast} from "@redwoodjs/web/toast";
-import {navigate, routes} from "@redwoodjs/router";
-import PlayerForm from "src/components/PlayerForm";
+import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/toast'
+import { navigate, routes } from '@redwoodjs/router'
+import PlayerForm from 'src/components/PlayerForm'
 
 export const QUERY = gql`
   query FIND_PLAYER_BY_ID($id: String!) {
@@ -19,7 +19,7 @@ export const QUERY = gql`
       teamId
     }
   }
-`;
+`
 const UPDATE_PLAYER_MUTATION = gql`
   mutation UpdatePlayerMutation($id: String!, $input: UpdatePlayerInput!) {
     updatePlayer(id: $id, input: $input) {
@@ -36,41 +36,40 @@ const UPDATE_PLAYER_MUTATION = gql`
       teamId
     }
   }
-`;
+`
 
-export function Loading() {
-	return <div>
-		Loading...
-	</div>;
-}
+export const Loading = () => <div>Loading...</div>
 
-export function Success({player}) {
-	const [updatePlayer, {loading, error}] = useMutation(
-		UPDATE_PLAYER_MUTATION,
-		{
-			onCompleted: () => {
-				toast.success("Player updated");
-				navigate(routes.players());
-			},
-		},
-	);
+export const Success = ({ player }) => {
+  const [updatePlayer, { loading, error }] = useMutation(
+    UPDATE_PLAYER_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success('Player updated')
+        navigate(routes.players())
+      },
+    }
+  )
 
-	function onSave(input, id) {
-		updatePlayer({variables: {id, input}});
-	}
+  const onSave = (input, id) => {
+    updatePlayer({ variables: { id, input } })
+  }
 
-	return <div className="rw-segment">
-		<header className="rw-segment-header">
-			<h2 className="rw-heading rw-heading-secondary">
-				Edit Player
-				{player.id}
-			</h2>
-		</header>
-		<div className="rw-segment-main">
-			<PlayerForm player={player}
-			onSave={onSave}
-			error={error}
-			loading={loading} />
-		</div>
-	</div>;
+  return (
+    <div className="rw-segment">
+      <header className="rw-segment-header">
+        <h2 className="rw-heading rw-heading-secondary">
+          Edit Player {player.id}
+        </h2>
+      </header>
+      <div className="rw-segment-main">
+        <PlayerForm
+          player={player}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+        />
+      </div>
+    </div>
+  )
 }

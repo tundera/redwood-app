@@ -1,6 +1,6 @@
-import {Link, routes} from "@redwoodjs/router";
+import { Link, routes } from '@redwoodjs/router'
 
-import Players from "src/components/Players";
+import Players from 'src/components/Players'
 
 export const QUERY = gql`
   query PLAYERS {
@@ -18,23 +18,21 @@ export const QUERY = gql`
       teamId
     }
   }
-`;
+`
 
-export function Loading() {
-	return <div>
-		Loading...
-	</div>;
+export const Loading = () => <div>Loading...</div>
+
+export const Empty = () => {
+  return (
+    <div className="rw-text-center">
+      {'No players yet. '}
+      <Link to={routes.newPlayer()} className="rw-link">
+        {'Create one?'}
+      </Link>
+    </div>
+  )
 }
 
-export function Empty() {
-	return <div className="rw-text-center">
-		{"No players yet. "}
-		<Link to={routes.newPlayer()} className="rw-link">
-			{"Create one?"}
-		</Link>
-	</div>;
-}
-
-export function Success({players}) {
-	return <Players players={players} />;
+export const Success = ({ players }) => {
+  return <Players players={players} />
 }

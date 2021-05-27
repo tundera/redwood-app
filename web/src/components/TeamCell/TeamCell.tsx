@@ -1,4 +1,4 @@
-import Team from "src/components/Team";
+import Team from 'src/components/Team'
 
 export const QUERY = gql`
   query FIND_TEAM_BY_ID($id: String!) {
@@ -21,20 +21,12 @@ export const QUERY = gql`
       established
     }
   }
-`;
+`
 
-export function Loading() {
-	return <div>
-		Loading...
-	</div>;
-}
+export const Loading = () => <div>Loading...</div>
 
-export function Empty() {
-	return <div>
-		Team not found
-	</div>;
-}
+export const Empty = () => <div>Team not found</div>
 
-export function Success({team}) {
-	return <Team team={team} />;
+export const Success = ({ team }) => {
+  return <Team team={team} />
 }

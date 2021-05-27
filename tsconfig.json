@@ -10,7 +10,12 @@
 		"typeRoots": [
 			"node_modules/@types",
 		],
-		"types": []
+		"types": [],
+    "plugins": [
+      {
+        "name": "typescript-eslint-language-service"
+      }
+    ]
 	},
 	"include": [
 		"redwood/**/*",

@@ -1,10 +1,12 @@
-import ColorSchemesLayout from "src/layouts/ColorSchemesLayout";
-import ColorSchemesCell from "src/components/ColorSchemesCell";
+import ColorSchemesLayout from 'src/layouts/ColorSchemesLayout'
+import ColorSchemesCell from 'src/components/ColorSchemesCell'
 
-function ColorSchemesPage() {
-	return <ColorSchemesLayout>
-		<ColorSchemesCell />
-	</ColorSchemesLayout>;
+const ColorSchemesPage = () => {
+  return (
+    <ColorSchemesLayout>
+      <ColorSchemesCell />
+    </ColorSchemesLayout>
+  )
 }
 
-export default ColorSchemesPage;
+export default ColorSchemesPage

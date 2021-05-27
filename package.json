@@ -35,6 +35,7 @@
     "@preconstruct/cli": "^2.1.0",
     "@redwoodjs/core": "^0.32.2",
     "esbuild-register": "^2.5.0",
-    "postinstall-postinstall": "^2.1.0"
+    "postinstall-postinstall": "^2.1.0",
+    "typescript-eslint-language-service": "^4.1.4"
   }
 }
