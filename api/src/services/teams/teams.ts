@@ -1,5 +1,4 @@
 import { Prisma } from '@prisma/client'
-import { ResolverArgs } from '@redwoodjs/api/dist/types'
 import { db } from 'src/lib/db'
 import { requireAuth } from 'src/lib/auth'
 import { BeforeResolverSpecType } from '@redwoodjs/api'
@@ -44,13 +43,4 @@ export const deleteTeam = ({ id }: Prisma.TeamWhereUniqueInput) => {
   return db.team.delete({
     where: { id },
   })
-}
-
-export const Team = {
-  coaches: (_obj, { root }: ResolverArgs<Prisma.TeamWhereUniqueInput>) =>
-    db.team.findUnique({ where: { id: root.id } }).coaches(),
-  colorScheme: (_obj, { root }: ResolverArgs<Prisma.TeamWhereUniqueInput>) =>
-    db.team.findUnique({ where: { id: root.id } }).colorScheme(),
-  players: (_obj, { root }: ResolverArgs<Prisma.TeamWhereUniqueInput>) =>
-    db.team.findUnique({ where: { id: root.id } }).players(),
 }

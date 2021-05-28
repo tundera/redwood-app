@@ -17,14 +17,14 @@ describe('teams', () => {
     const result = await createTeam({
       input: {
         id: 'String',
-        updatedAt: '2021-05-27T22:08:53Z',
-        handle: 'String1180012',
-        name: 'String9999201',
-        slug: 'String3963515',
+        updatedAt: '2021-05-28T06:08:26Z',
+        handle: 'String3441074',
+        name: 'String6430639',
+        slug: 'String994591',
         city: 'String',
-        abbreviation: 'String9511778',
-        logo: 'String128018',
-        logoSlug: 'String6303620',
+        abbreviation: 'String5077627',
+        logo: 'String8952887',
+        logoSlug: 'String4202189',
         conference: 'String',
         division: 'String',
         established: 'String',
@@ -32,14 +32,14 @@ describe('teams', () => {
     })
 
     expect(result.id).toEqual('String')
-    expect(result.updatedAt).toEqual('2021-05-27T22:08:53Z')
-    expect(result.handle).toEqual('String1180012')
-    expect(result.name).toEqual('String9999201')
-    expect(result.slug).toEqual('String3963515')
+    expect(result.updatedAt).toEqual('2021-05-28T06:08:26Z')
+    expect(result.handle).toEqual('String3441074')
+    expect(result.name).toEqual('String6430639')
+    expect(result.slug).toEqual('String994591')
     expect(result.city).toEqual('String')
-    expect(result.abbreviation).toEqual('String9511778')
-    expect(result.logo).toEqual('String128018')
-    expect(result.logoSlug).toEqual('String6303620')
+    expect(result.abbreviation).toEqual('String5077627')
+    expect(result.logo).toEqual('String8952887')
+    expect(result.logoSlug).toEqual('String4202189')
     expect(result.conference).toEqual('String')
     expect(result.division).toEqual('String')
     expect(result.established).toEqual('String')
