@@ -1,12 +1,12 @@
 import { Prisma } from '@prisma/client'
-import { ResolverArgs } from '@redwoodjs/api/dist/types'
 import { db } from 'src/lib/db'
 import { requireAuth } from 'src/lib/auth'
 import { BeforeResolverSpecType } from '@redwoodjs/api'
 
 // Used when the environment variable REDWOOD_SECURE_SERVICES=1
 export const beforeResolver = (rules: BeforeResolverSpecType) => {
-  rules.add(requireAuth)
+  rules.add(() => requireAuth({ role: ['admin'] }))
+  rules.skip({ only: ['colorSchemes'] })
 }
 
 export const colorSchemes = () => {
@@ -46,9 +46,4 @@ export const deleteColorScheme = ({
   return db.colorScheme.delete({
     where: { id },
   })
-}
-
-export const ColorScheme = {
-  team: (_obj, { root }: ResolverArgs<Prisma.ColorSchemeWhereUniqueInput>) =>
-    db.colorScheme.findUnique({ where: { id: root.id } }).team(),
 }

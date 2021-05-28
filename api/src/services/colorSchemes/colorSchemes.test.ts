@@ -23,14 +23,14 @@ describe('colorSchemes', () => {
     const result = await createColorScheme({
       input: {
         id: 'String',
-        updatedAt: '2021-05-27T22:09:17Z',
+        updatedAt: '2021-05-28T06:19:36Z',
         primary: 'String',
         secondary: 'String',
       },
     })
 
     expect(result.id).toEqual('String')
-    expect(result.updatedAt).toEqual('2021-05-27T22:09:17Z')
+    expect(result.updatedAt).toEqual('2021-05-28T06:19:36Z')
     expect(result.primary).toEqual('String')
     expect(result.secondary).toEqual('String')
   })

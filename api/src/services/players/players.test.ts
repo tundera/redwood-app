@@ -23,20 +23,20 @@ describe('players', () => {
     const result = await createPlayer({
       input: {
         id: 'String',
-        updatedAt: '2021-05-28T06:06:08Z',
-        handle: 'String8711520',
-        name: 'String3290542',
-        slug: 'String6018276',
+        updatedAt: '2021-05-28T06:19:03Z',
+        handle: 'String3549660',
+        name: 'String4495256',
+        slug: 'String9911471',
         height: 'String',
         weight: 'String',
       },
     })
 
     expect(result.id).toEqual('String')
-    expect(result.updatedAt).toEqual('2021-05-28T06:06:08Z')
-    expect(result.handle).toEqual('String8711520')
-    expect(result.name).toEqual('String3290542')
-    expect(result.slug).toEqual('String6018276')
+    expect(result.updatedAt).toEqual('2021-05-28T06:19:03Z')
+    expect(result.handle).toEqual('String3549660')
+    expect(result.name).toEqual('String4495256')
+    expect(result.slug).toEqual('String9911471')
     expect(result.height).toEqual('String')
     expect(result.weight).toEqual('String')
   })

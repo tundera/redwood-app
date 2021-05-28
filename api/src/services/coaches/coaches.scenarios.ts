@@ -2,15 +2,15 @@ export const standard = defineScenario({
   coach: {
     one: {
       id: 'String',
-      updatedAt: '2021-05-28T06:06:33Z',
-      handle: 'String183557',
-      name: 'String1090849',
+      updatedAt: '2021-05-28T06:18:44Z',
+      handle: 'String291483',
+      name: 'String6069093',
     },
     two: {
       id: 'String',
-      updatedAt: '2021-05-28T06:06:33Z',
-      handle: 'String4356429',
-      name: 'String3509633',
+      updatedAt: '2021-05-28T06:18:44Z',
+      handle: 'String7516640',
+      name: 'String6970084',
     },
   },
 })

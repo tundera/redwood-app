@@ -3502,6 +3502,14 @@
     "@supabase/realtime-js" "^1.0.9"
     "@supabase/storage-js" "^1.0.3"
 
+"@supabase/ui@^0.26.2":
+  version "0.26.2"
+  resolved "https://registry.npmjs.org/@supabase/ui/-/ui-0.26.2.tgz#8ba7bc20acbebb2f3e1867971c1f548cb7429338"
+  integrity sha512-ny7jvtop4UGxMrc8BDhg6oC2KTJoDoGu9JGABFVA0shMqUmaemAUGD7CkqD+JuRnzV5l/7VaeoPGWbvWQSLiDw==
+  dependencies:
+    lodash "^4.17.20"
+    prop-types "^15.7.2"
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"
