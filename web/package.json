@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/web",
+  "name": "web",
   "version": "0.1.0",
   "private": true,
   "browserslist": {
@@ -14,14 +14,15 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
-    "@chakra-ui/react": "^1.6.2",
+    "@chakra-ui/react": "^1.6.3",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@monorepo/components": "^0.1.0",
+    "@redwoodjs/auth": "^0.32.2",
     "@redwoodjs/forms": "^0.32.2",
     "@redwoodjs/router": "^0.32.2",
     "@redwoodjs/web": "^0.32.2",
-    "@supabase/supabase-js": "^1.11.15",
+    "@supabase/supabase-js": "^1.11.17",
     "framer-motion": "^4.1.17",
     "graphql-request": "^3.4.0",
     "merge-anything": "^4.0.1",

@@ -3,9 +3,11 @@
 		"noEmit": true,
 		"allowJs": true,
 		"esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
 		"target": "esnext",
 		"module": "esnext",
 		"moduleResolution": "node",
+    "incremental": true,
 		"baseUrl": ".",
 		"typeRoots": [
 			"node_modules/@types",
@@ -17,8 +19,6 @@
       }
     ]
 	},
-	"include": [
-		"redwood/**/*",
-		"types"
-	]
+	"include": ["."],
+  "exclude": ["node_modules"]
 }
