@@ -8,16 +8,16 @@
 		"module": "esnext",
 		"moduleResolution": "node",
     "incremental": true,
-		"baseUrl": ".",
-		"typeRoots": [
+    "typeRoots": [
 			"node_modules/@types",
 		],
 		"types": [],
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "typescript-eslint-language-service"
       }
-    ]
+    ],
 	},
 	"include": ["."],
   "exclude": ["node_modules"]

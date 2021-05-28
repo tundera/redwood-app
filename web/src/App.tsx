@@ -8,7 +8,7 @@ import FatalErrorPage from 'src/pages/FatalErrorPage/FatalErrorPage'
 import Routes from 'src/Routes'
 import { ChakraProvider } from '@chakra-ui/react'
 
-import { theme } from '@monorepo/theme'
+import theme from 'src/styles/theme'
 
 import './scaffold.css'
 import './index.css'

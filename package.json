@@ -1,11 +1,9 @@
 {
-  "name": "@monorepo/root",
   "private": true,
   "workspaces": {
     "packages": [
       "api",
-      "web",
-      "packages/*"
+      "web"
     ]
   },
   "eslintConfig": {
@@ -17,21 +15,14 @@
     "yarn": "1.x"
   },
   "scripts": {
-    "postinstall": "manypkg check && preconstruct dev",
-    "prebuild": "preconstruct build",
-    "build": "rw build"
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/*"
-    ]
+    "build": "rw build",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "@manypkg/cli": "^0.18.0",
-    "@preconstruct/cli": "^2.1.0",
     "@redwoodjs/core": "^0.32.2",
     "esbuild-register": "^2.5.0",
     "postinstall-postinstall": "^2.1.0",
+    "prettier": "^2.3.0",
     "typescript-eslint-language-service": "^4.1.4"
   }
 }
