@@ -10,4 +10,12 @@ node_modules
 yarn-error.log
 web/public/mockServiceWorker.js
 
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 **/db/backups

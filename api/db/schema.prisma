@@ -3,7 +3,7 @@ generator client {
   binaryTargets = ["native"]
 }
 
-datasource DS {
+datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
