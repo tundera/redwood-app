@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@redwoodjs/api": "^0.33.0",
-    "@redwoodjs/api-server": "^0.33.0"
+    "@redwoodjs/api": "^0.34.1"
   },
   "devDependencies": {
     "nba": "^4.15.0",
-    "prettier-plugin-prisma": "^0.11.0"
+    "prettier-plugin-prisma": "^0.12.1"
   }
 }
