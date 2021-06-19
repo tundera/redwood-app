@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@redwoodjs/api": "^0.34.1"
+    "@redwoodjs/api": "^0.34.1",
+    "esbuild-register": "^2.6.0"
   },
   "devDependencies": {
     "nba": "^4.15.0",

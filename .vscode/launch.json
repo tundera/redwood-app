@@ -17,6 +17,26 @@
 			"cwd": "${workspaceFolder}/api",
 			"envFile": "${workspaceFolder}/.env.defaults",
 			"program": "${workspaceFolder}/node_modules/.bin/dev-server"
-		}
+		},
+    {
+      "name": "Seed database",
+      "type": "pwa-node",
+      "program": "${workspaceFolder}/api/db/seed.ts",
+      "runtimeArgs": ["-r", "esbuild-register"],
+      "envFile": "${workspaceFolder}/.env",
+      "sourceMaps": true,
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Update database",
+      "type": "pwa-node",
+      "program": "${workspaceFolder}/api/db/update.ts",
+      "runtimeArgs": ["-r", "esbuild-register"],
+      "envFile": "${workspaceFolder}/.env",
+      "sourceMaps": true,
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"]
+    },
 	]
 }
