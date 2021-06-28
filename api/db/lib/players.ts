@@ -63,20 +63,43 @@ export async function upsertPlayerData(player: PlayerData) {
 	}
 }
 
-export async function seedPlayerData(player: Omit<Player, "teamId">) {
-	// Create player in database
-	await db.player.create({
-		data: {
-			id: player.id,
-			createdAt: new Date(),
-			updatedAt: new Date(),
-			handle: player.handle,
-			name: player.name,
-			slug: player.slug,
-			height: player.height,
-			weight: player.weight,
-			number: player.number,
-			position: player.position,
-		},
-	});
+export async function seedPlayerData(player: Player) {
+  // Create player in database
+  await db.player.create({
+    data: {
+      id: player.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      handle: player.handle,
+      name: player.name,
+      slug: player.slug,
+      height: player.height,
+      weight: player.weight,
+      number: player.number,
+      position: player.position,
+    },
+  })
+
+  // Connect players to or remove players from teams
+  if (player.teamId) {
+    await db.player.update({
+      where: { id: player.id.toString() },
+      data: {
+        team: {
+          connect: {
+            id: player.teamId.toString(),
+          },
+        },
+      },
+    })
+  } else {
+    await db.player.update({
+      where: { id: player.id.toString() },
+      data: {
+        team: {
+          disconnect: true,
+        },
+      },
+    })
+  }
 }

@@ -57,7 +57,7 @@ export async function upsertCoachData(coach: CoachData) {
   }
 }
 
-export async function seedCoachData(coach: Omit<Coach, 'teamId'>) {
+export async function seedCoachData(coach: Coach) {
   // Create coach in database
   await db.coach.create({
     data: {
@@ -70,4 +70,27 @@ export async function seedCoachData(coach: Omit<Coach, 'teamId'>) {
       isAssistant: coach.isAssistant,
     },
   })
+
+  // Connect coaches to or remove coaches from teams
+  if (coach.teamId) {
+    await db.coach.update({
+      where: { id: coach.id.toString() },
+      data: {
+        team: {
+          connect: {
+            id: coach.teamId.toString(),
+          },
+        },
+      },
+    })
+  } else {
+    await db.coach.update({
+      where: { id: coach.id.toString() },
+      data: {
+        team: {
+          disconnect: true,
+        },
+      },
+    })
+  }
 }
