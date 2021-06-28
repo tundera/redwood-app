@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-import rawCoaches from './backups/documents/coaches.json'
-import rawSchemes from './backups/documents/colors.json'
-import rawPlayers from './backups/documents/players.json'
-import rawTeams from './backups/documents/teams.json'
-import { db } from '../src/lib/db'
+import rawCoaches from './backups/documents/coach.json'
+import rawSchemes from './backups/documents/color-scheme.json'
+import rawPlayers from './backups/documents/player.json'
+import rawTeams from './backups/documents/team.json'
+
+import {db} from '../src/lib/db'
 import { seedCoachData, transformCoachData } from './lib/coaches'
 import { seedColorSchemes, transformColorSchemeData } from './lib/colors'
 import { seedPlayerData, transformPlayerData } from './lib/players'
@@ -13,7 +14,7 @@ import { seedTeamData, transformTeamData } from './lib/teams'
 async function main() {
   console.log('Start seeding ...')
 
-  const teams = []
+  const teams: any = []
 
   for (const rawTeam of rawTeams) {
     teams.push(transformTeamData(rawTeam))
@@ -26,7 +27,7 @@ async function main() {
 
   console.log('Done seeding teams')
 
-  const players = []
+  const players: any = []
 
   for (const rawPlayer of rawPlayers) {
     players.push(transformPlayerData(rawPlayer))
@@ -39,7 +40,7 @@ async function main() {
 
   console.log('Done seeding players')
 
-  const coaches = []
+  const coaches: any = []
 
   for (const rawCoach of rawCoaches) {
     coaches.push(transformCoachData(rawCoach))
@@ -50,7 +51,7 @@ async function main() {
     console.log(`Updated Coach with id ${coach.id} (${coach.name})`)
   }
 
-  const schemes = []
+  const schemes: any = []
 
   for (const rawScheme of rawSchemes) {
     schemes.push(transformColorSchemeData(rawScheme))
@@ -63,7 +64,7 @@ async function main() {
 
   console.log('Done seeding color schemes')
 
-  console.log('\u2705 Seeding finished.')
+  console.log('✅ Seeding finished.')
 }
 
 main()

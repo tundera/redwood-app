@@ -1,18 +1,21 @@
-import { db } from '../../src/lib/db'
-import type { BackupCoachData, Coach, CoachData } from '../types'
+import type { Coach } from '@prisma/client'
+import type { BackupCoachData, CoachData } from '../types'
 
-export function transformCoachData(coach: BackupCoachData) {
+import {db} from '../../src/lib/db'
+
+export const transformCoachData = (coach: BackupCoachData) => {
   return {
     ...coach,
-    id: coach.id.toString(),
+    id: coach.id,
     createdAt: new Date(coach.createdAt),
     updatedAt: new Date(),
-    handle: coach.handle.toString(),
-    isAssistant: coach.isAssistant.toString(),
+    handle: coach.handle,
+    isAssistant: coach.isAssistant,
+    teamId: coach.teamId,
   }
 }
 
-export async function upsertCoachData(coach: CoachData) {
+export const upsertCoachData = async (coach: CoachData) => {
   // Update or create coach if not present in database
   await db.coach.upsert({
     where: { id: coach.coachId.toString() },
@@ -57,7 +60,7 @@ export async function upsertCoachData(coach: CoachData) {
   }
 }
 
-export async function seedCoachData(coach: Coach) {
+export const seedCoachData = async (coach: Coach) => {
   // Create coach in database
   await db.coach.create({
     data: {

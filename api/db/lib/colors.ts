@@ -1,47 +1,49 @@
-import type {BackupColorSchemeData, ColorScheme} from "../types";
-import {db} from "../../src/lib/db";
+import type { ColorScheme } from '@prisma/client'
+import type { BackupColorSchemeData } from '../types'
 
-export function transformColorSchemeData(scheme: BackupColorSchemeData) {
-	return {
-		...scheme,
-		id: scheme.id.toString(),
-		createdAt: new Date(scheme.createdAt),
-		updatedAt: new Date(),
-		teamId: scheme.teamId.toString(),
-	};
+import {db} from '../../src/lib/db'
+
+export const transformColorSchemeData = (scheme: BackupColorSchemeData) => {
+  return {
+    ...scheme,
+    id: scheme.id.toString(),
+    createdAt: new Date(scheme.createdAt),
+    updatedAt: new Date(),
+    teamId: scheme.teamId,
+  }
 }
 
-export async function seedColorSchemes(scheme: ColorScheme) {
-	await db.colorScheme.create({
-		data: {
-			id: scheme.id,
-			createdAt: new Date(),
-			updatedAt: new Date(),
-			primary: scheme.primary,
-			secondary: scheme.secondary,
-		},
-	});
+export const seedColorSchemes = async (scheme: ColorScheme) => {
+  await db.colorScheme.create({
+    data: {
+      id: scheme.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      primary: scheme.primary,
+      secondary: scheme.secondary,
+    },
+  })
 
-	// // Connect schemes to teams
-	if (scheme.teamId) {
-		await db.colorScheme.update({
-			where: {id: scheme.id},
-			data: {
-				team: {
-					connect: {
-						id: scheme.teamId,
-					},
-				},
-			},
-		});
-	} else {
-		await db.colorScheme.update({
-			where: {id: scheme.id},
-			data: {
-				team: {
-					disconnect: true,
-				},
-			},
-		});
-	}
+  // // Connect schemes to teams
+  if (scheme.teamId) {
+    await db.colorScheme.update({
+      where: { id: scheme.id },
+      data: {
+        team: {
+          connect: {
+            id: scheme.teamId,
+          },
+        },
+      },
+    })
+  } else {
+    await db.colorScheme.update({
+      where: { id: scheme.id },
+      data: {
+        team: {
+          disconnect: true,
+        },
+      },
+    })
+  }
 }

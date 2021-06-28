@@ -6,21 +6,11 @@ import { getUpdatedTeamData, updateTeamData } from './lib/teams'
 
 export async function main() {
   console.log('Start updating ...')
-  let teamsUpdated = 0
-
-  const updatedTeams = []
 
   for (const team of teams) {
     const data = await getUpdatedTeamData(team.teamId)
-    updatedTeams.push(data)
 
-    teamsUpdated += 1
-
-    console.log('Teams updated:', teamsUpdated)
-  }
-
-  for (const team of updatedTeams) {
-    await updateTeamData(team)
+    await updateTeamData(data)
     console.log(`Updated team: ${team.teamId} (${team.teamName})`)
   }
 
@@ -34,4 +24,5 @@ main()
   })
   .finally(async () => {
     await db.$disconnect()
+    process.exit(0)
   })

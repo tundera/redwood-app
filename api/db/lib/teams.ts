@@ -1,28 +1,29 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import nba from 'nba'
-import { db } from '../../src/lib/db'
+import type { Team } from '@prisma/client'
 import type {
   BackupTeamData,
-  Team,
   TeamData,
   TeamRoster,
   UpdatedTeamData,
+  TeamInfoCommon,
 } from '../types'
-import { upsertCoachData } from './coaches'
-import { upsertPlayerData } from './players'
 
-function getTeamInfo(teamId: number): Promise<TeamData> {
-  return nba.stats.teamInfoCommon({ TeamID: teamId })
+import nba from 'nba'
+
+import {db} from '../../src/lib/db'
+import { upsertCoachData } from '../lib/coaches'
+import { upsertPlayerData } from '../lib/players'
+
+async function getTeamInfo(teamId: number): Promise<TeamData> {
+  return await nba.stats.teamInfoCommon({ TeamID: teamId })
 }
 
-function getTeamRoster(teamId: number): Promise<TeamRoster> {
-  return nba.stats.commonTeamRoster({ TeamID: teamId })
+async function getTeamRoster(teamId: number): Promise<TeamRoster> {
+  return await nba.stats.commonTeamRoster({ TeamID: teamId })
 }
 
-export async function getUpdatedTeamData(teamId: number) {
+export const getUpdatedTeamData = async (teamId: number) => {
   const { teamInfoCommon } = await getTeamInfo(teamId)
-  const [team] = teamInfoCommon
+  const [team] = teamInfoCommon as [TeamInfoCommon]
 
   const { commonTeamRoster: players, coaches } = await getTeamRoster(teamId)
 
@@ -33,19 +34,20 @@ export async function getUpdatedTeamData(teamId: number) {
   }
 }
 
-export function transformTeamData(data: BackupTeamData) {
+export const transformTeamData = (data: BackupTeamData) => {
   return {
     ...data,
-    id: data.id.toString(),
+    id: data.id,
     createdAt: new Date(data.createdAt),
     updatedAt: new Date(),
-    handle: data.handle.toString(),
-    established: data.established?.toString?.(),
+    handle: data.handle,
+    established: data.established,
   }
 }
 
-export async function updateTeamData(data: UpdatedTeamData) {
+export const updateTeamData = async (data: UpdatedTeamData) => {
   const { players, coaches, ...team } = data
+
   await db.team.update({
     where: { handle: team.teamId.toString() },
     data: {
@@ -72,10 +74,10 @@ export async function updateTeamData(data: UpdatedTeamData) {
   }
 }
 
-export async function seedTeamData(team: Team) {
+export const seedTeamData = async (team: Team) => {
   await db.team.create({
     data: {
-      id: team.id.toString(),
+      id: team.id,
       createdAt: new Date(),
       updatedAt: new Date(),
       handle: team.handle,
